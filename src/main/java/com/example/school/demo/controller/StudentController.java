@@ -1,5 +1,8 @@
 package com.example.school.demo.controller;
 
+import com.example.school.demo.Course;
+import com.example.school.demo.Student;
+import com.example.school.demo.service.StudentDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,11 +10,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class StudentController
 {
 
-    @Autowired private StudentDataService studentDataService;
+    @Autowired
+    private StudentDataService studentDataService;
 
     @GetMapping(value = "/students/{studentId}", produces = "application/json")
     public Student getSingleStudent( @PathVariable String studentId )
